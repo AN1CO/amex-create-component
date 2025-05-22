@@ -1,0 +1,44 @@
+import { describe, vi, beforeAll, test, expect, beforeEach } from "vitest";
+import { screen, render, fireEvent } from "@testing-library/react";
+import { userEvent } from "@testing-library/user-event";
+import Modal from "./Modal";
+
+describe("Modal", () => {
+  const mockClose = vi.fn();
+
+  beforeAll(() => {
+    mockClose.mockReset();
+  });
+
+  beforeEach(() => {
+    render(<Modal />);
+  });
+
+  test("renders modal with expected controls", () => {
+    expect(screen.getByRole("dialog")).toBeInTheDocument();
+    expect(screen.getByRole("heading")).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /close/i })).toBeInTheDocument();
+  });
+
+  describe("when passed onClose handler", () => {
+    test("calls onClose action when pressing the ESC key", () => {
+      fireEvent.keyDown(screen.getByRole("dialog"), {
+        key: "Escape",
+        code: "Escape",
+      });
+      expect(mockClose).toHaveBeenCalledTimes(1);
+    });
+
+    test("renders dismissible button that calls onClose action when clicked", async () => {
+      const closeButton = screen.getByRole("button", { name: /close/i });
+      await userEvent.click(closeButton);
+      expect(mockClose).toHaveBeenCalledTimes(1);
+    });
+
+    test("calls onClose action when clicking outside of the modal", async () => {
+      const scrimElement = screen.getByTestId("mockId");
+      await userEvent.click(scrimElement);
+      expect(mockClose).toHaveBeenCalledTimes(1);
+    });
+  });
+});
