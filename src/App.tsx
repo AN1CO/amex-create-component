@@ -3,9 +3,7 @@ import Modal from "./components/modal/Modal";
 function App() {
   return (
     <div className="flex justify-center items-center flex-col h-screen">
-      <div>
-        <Button />
-      </div>
+      <Button />
       <Modal />
     </div>
   );
