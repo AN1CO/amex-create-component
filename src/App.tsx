@@ -1,8 +1,13 @@
+import Button from "./components/button/Button";
+import Modal from "./components/modal/Modal";
 function App() {
   return (
-    <>
-      <p className="font-bold">put stuff here</p>
-    </>
+    <div className="flex justify-center items-center flex-col h-screen">
+      <div>
+        <Button />
+      </div>
+      <Modal />
+    </div>
   );
 }
 
