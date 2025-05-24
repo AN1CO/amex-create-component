@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { useState } from "react";
 
 import Modal from "../components/modal/Modal";
-import Button from "../components/button/Button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -13,7 +12,7 @@ const meta = {
     layout: "centered",
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  // tags: ["autodocs"],
+  tags: ["autodocs"],
 } satisfies Meta<typeof Modal>;
 
 export default meta;
@@ -29,7 +28,7 @@ const DialogModal = () => {
 
   return (
     <>
-      <Button label="Open Modal" onClick={() => setOpenModal(true)} />
+      <button onClick={() => setOpenModal(true)}>Open Modal</button>
       <Modal isOpen={openModal} onClose={() => setOpenModal(false)}>
         Modal Things
       </Modal>
