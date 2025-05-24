@@ -11,7 +11,11 @@ describe("Modal", () => {
   });
 
   beforeEach(() => {
-    render(<Modal />);
+    render(
+      <Modal isOpen={true} onClose={mockClose}>
+        Stuff
+      </Modal>
+    );
   });
 
   test("renders modal with expected controls", () => {

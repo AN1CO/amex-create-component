@@ -27,14 +27,12 @@ type Story = StoryObj<typeof Modal>;
 const DialogModal = () => {
   const [openModal, setOpenModal] = useState(false);
 
-  const toggleModal = () => {
-    setOpenModal(true);
-  };
-
   return (
     <>
-      <Button label="Open Modal" onClick={toggleModal} />
-      <Modal isOpen={openModal}>Modal Things</Modal>
+      <Button label="Open Modal" onClick={() => setOpenModal(true)} />
+      <Modal isOpen={openModal} onClose={() => setOpenModal(false)}>
+        Modal Things
+      </Modal>
     </>
   );
 };
