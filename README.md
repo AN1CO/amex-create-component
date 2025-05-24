@@ -36,45 +36,6 @@ Consider the flexibility of this component, how you might break this down for di
 
 NOTE: However you configure the project from Task One, the expectation would be that this component can be seen rendered.
 
-```typescript
-describe('Modal', () => {
-  const mockClose = vi.fn();
-
-  beforeAll(() => {
-    mockClose.mockReset()
-  });
-
-  test('renders modal with expected controls', () => {
-    render(/** Your component **/);
-    expect(screen.getByRole('dialog')).toBeInTheDocument();
-    expect(screen.getByRole('heading')).toBeInTheDocument();
-    expect(screen.getByRole('button', { name: /close/i })).toBeInTheDocument();
-  });
-
-  describe('when passed onClose handler', () => {
-    test('calls onClose action when pressing the ESC key', () => {
-      render(/** Your component **/);
-      fireEvent.keyDown(screen.getByRole('dialog'), { key: 'Escape', code: 'Escape' });
-      expect(mockClose).toHaveBeenCalledTimes(1);
-    });
-
-    test('renders dismissible button that calls onClose action when clicked', async () => {
-      const { user } = renderWithUser(/** Your component **/);
-      const closeButton = screen.getByRole('button', { name: /close/i });
-      await user.click(closeButton);
-      expect(mockClose).toHaveBeenCalledTimes(1);
-    });
-
-    test('calls onClose action when clicking outside of the modal', async () => {
-      const { user } = renderWithUser(/** Your component **/);
-      const scrimElement = screen.getByTestId('mockId');
-      await user.click(scrimElement);
-      expect(mockClose).toHaveBeenCalledTimes(1);
-    });
-  });
-});
-```
-
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
