@@ -3,8 +3,9 @@ import CloseIcon from "../../assets/close-circle.svg";
 
 interface ModalProps {
   isOpen: boolean;
-  onClose?: () => void;
+  onClose: () => void;
   title?: string;
+  hideCloseBtn?: boolean;
   children: React.ReactNode;
 }
 
@@ -27,6 +28,7 @@ export default function Modal({
   isOpen,
   onClose,
   title,
+  hideCloseBtn,
   children,
 }: ModalProps) {
   const modalRef = useRef<HTMLDialogElement>(null);
@@ -85,7 +87,7 @@ export default function Modal({
       className="max-w-fit p-6 rounded-2xl relative m-auto backdrop:backdrop-grayscale-50"
     >
       <div className="p-6 rounded w-96 relative flex-col">
-        {onClose ? <CloseButton onClick={handleCloseModal} /> : null}
+        {hideCloseBtn ? null : <CloseButton onClick={handleCloseModal} />}
         {title ? (
           <h1 className="text-center text-xl font-bold">{title}</h1>
         ) : null}

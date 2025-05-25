@@ -69,7 +69,7 @@ describe("Modal", () => {
       render(
         <div>
           <div data-testid="mockId">Outside</div>
-          <Modal isOpen={true} title="Confirm">
+          <Modal isOpen={true} title="Confirm" onClose={mockClose}>
             Stuff
           </Modal>
         </div>
