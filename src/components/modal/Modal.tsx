@@ -16,7 +16,7 @@ const CloseButton = ({ onClick }: CloseButtonProps) => (
   <button
     name="Close"
     aria-label="Close"
-    onClick={onClick}
+    onClick={() => onClick()}
     className="absolute top-1 right-1"
   >
     <img className="w-8 h-8" src={CloseIcon} />
@@ -31,7 +31,7 @@ export default function Modal({
 }: ModalProps) {
   const modalRef = useRef<HTMLDialogElement>(null);
 
-  // prevent rerendering from UseEffect
+  // useCallback prevents rerendering from UseEffect
   const handleCloseModal = useCallback(() => {
     if (onClose) {
       onClose();
@@ -55,12 +55,7 @@ export default function Modal({
     const modalElement = modalRef.current;
     if (!modalElement) return;
 
-    const handleCancel = (event: Event) => {
-      event.preventDefault(); // prevent default closing behavior
-      handleCloseModal();
-    };
-
-    const handleClickOutside = (event: MouseEvent) => {
+    const handleClickOutside = (event: Event) => {
       if (
         modalElement.open &&
         event.target === modalElement // click on the backdrop
@@ -69,20 +64,10 @@ export default function Modal({
       }
     };
 
-    const handleNativeClose = () => {
-      if (modalElement.open) {
-        handleCloseModal();
-      }
-    };
-
-    modalElement.addEventListener("cancel", handleCancel);
     modalElement.addEventListener("click", handleClickOutside);
-    modalElement.addEventListener("close", handleNativeClose);
 
     return () => {
-      modalElement.removeEventListener("cancel", handleCancel);
       modalElement.removeEventListener("click", handleClickOutside);
-      modalElement.removeEventListener("close", handleNativeClose);
     };
   }, [handleCloseModal]);
 

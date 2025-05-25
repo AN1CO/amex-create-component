@@ -1,5 +1,19 @@
-import { describe, vi, beforeAll, test, expect, beforeEach } from "vitest";
-import { screen, render, fireEvent } from "@testing-library/react";
+import {
+  describe,
+  vi,
+  beforeAll,
+  test,
+  expect,
+  beforeEach,
+  afterEach,
+} from "vitest";
+import {
+  screen,
+  render,
+  fireEvent,
+  waitFor,
+  cleanup,
+} from "@testing-library/react";
 import { userEvent } from "@testing-library/user-event";
 import Modal from "./Modal";
 
@@ -18,6 +32,10 @@ describe("Modal", () => {
         Stuff
       </Modal>
     );
+  });
+
+  afterEach(() => {
+    cleanup();
   });
 
   test("renders modal with expected controls", () => {
@@ -42,13 +60,22 @@ describe("Modal", () => {
         hidden: true,
         name: /close/i,
       });
-      await userEvent.click(closeButton);
-      expect(mockClose).toHaveBeenCalledTimes(1);
+      userEvent.click(closeButton);
+      await waitFor(() => expect(mockClose).toHaveBeenCalledTimes(1));
     });
 
     test("calls onClose action when clicking outside of the modal", async () => {
+      cleanup();
+      render(
+        <div>
+          <div data-testid="mockId">Outside</div>
+          <Modal isOpen={true} title="Confirm">
+            Stuff
+          </Modal>
+        </div>
+      );
       const scrimElement = screen.getByTestId("mockId");
-      await userEvent.click(scrimElement);
+      await waitFor(() => fireEvent.click(scrimElement));
       expect(mockClose).toHaveBeenCalledTimes(1);
     });
   });
