@@ -21,14 +21,6 @@ function App() {
           dragée jelly sesame snaps jelly-o pie cupcake liquorice. Chocolate
           cake chocolate cake danish bear claw cake.
         </p>
-        <div className="flex justify-center">
-          <button
-            className="text-white bg-violet-600 hover:bg-violet-400 hover:text-black"
-            onClick={() => console.log("Confirmed!")}
-          >
-            Confirm
-          </button>
-        </div>
       </Modal>
     </div>
   );

@@ -1,9 +1,9 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useCallback } from "react";
 import CloseIcon from "../../assets/close-circle.svg";
 
 interface ModalProps {
   isOpen: boolean;
-  onClose: () => void;
+  onClose?: () => void;
   title?: string;
   children: React.ReactNode;
 }
@@ -30,6 +30,15 @@ export default function Modal({
   children,
 }: ModalProps) {
   const modalRef = useRef<HTMLDialogElement>(null);
+
+  // prevent rerendering from UseEffect
+  const handleCloseModal = useCallback(() => {
+    if (onClose) {
+      onClose();
+    }
+  }, [onClose]);
+
+  // basic open modal when isOpen is set to true
   useEffect(() => {
     const modalElement = modalRef.current;
     if (!modalElement) return;
@@ -41,11 +50,41 @@ export default function Modal({
     }
   }, [isOpen]);
 
-  const handleCloseModal = () => {
-    if (onClose) {
-      onClose();
-    }
-  };
+  // close modal when clicking outside of modal
+  useEffect(() => {
+    const modalElement = modalRef.current;
+    if (!modalElement) return;
+
+    const handleCancel = (event: Event) => {
+      event.preventDefault(); // prevent default closing behavior
+      handleCloseModal();
+    };
+
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        modalElement.open &&
+        event.target === modalElement // click on the backdrop
+      ) {
+        handleCloseModal();
+      }
+    };
+
+    const handleNativeClose = () => {
+      if (modalElement.open) {
+        handleCloseModal();
+      }
+    };
+
+    modalElement.addEventListener("cancel", handleCancel);
+    modalElement.addEventListener("click", handleClickOutside);
+    modalElement.addEventListener("close", handleNativeClose);
+
+    return () => {
+      modalElement.removeEventListener("cancel", handleCancel);
+      modalElement.removeEventListener("click", handleClickOutside);
+      modalElement.removeEventListener("close", handleNativeClose);
+    };
+  }, [handleCloseModal]);
 
   // for when you use escape to close a modal, React keeps track of the close/open state
   const handleKeyDown = (event: React.KeyboardEvent<HTMLDialogElement>) => {
@@ -61,7 +100,7 @@ export default function Modal({
       className="max-w-fit p-6 rounded-2xl relative m-auto backdrop:backdrop-grayscale-50"
     >
       <div className="p-6 rounded w-96 relative flex-col">
-        <CloseButton onClick={handleCloseModal} />
+        {onClose ? <CloseButton onClick={handleCloseModal} /> : null}
         {title ? (
           <h1 className="text-center text-xl font-bold">{title}</h1>
         ) : null}
