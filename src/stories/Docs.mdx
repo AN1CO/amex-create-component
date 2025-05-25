@@ -1,0 +1,19 @@
+import { Meta, Source } from '@storybook/blocks';
+import * as Modalstories from './Modal.stories';
+ 
+<Meta of={Modalstories} />
+ 
+<Source code={`const TestModal = () => {
+  const [openModal, setOpenModal] = useState(false);
+
+return (
+
+<>
+  <button onClick={() => setOpenModal(true)}>Open Modal</button>
+  <Modal isOpen={openModal} title="Test" onClose={() => setOpenModal(false)}>
+    {children}
+  </Modal>
+</>
+); };`} /
+
+>

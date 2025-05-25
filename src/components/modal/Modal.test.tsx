@@ -7,26 +7,30 @@ describe("Modal", () => {
   const mockClose = vi.fn();
 
   beforeAll(() => {
-    mockClose.mockReset();
+    HTMLDialogElement.prototype.show = vi.fn();
+    HTMLDialogElement.prototype.showModal = vi.fn();
+    HTMLDialogElement.prototype.close = vi.fn();
   });
 
   beforeEach(() => {
     render(
-      <Modal isOpen={true} onClose={mockClose}>
+      <Modal isOpen={true} title="Confirm" onClose={mockClose}>
         Stuff
       </Modal>
     );
   });
 
   test("renders modal with expected controls", () => {
-    expect(screen.getByRole("dialog")).toBeInTheDocument();
-    expect(screen.getByRole("heading")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /close/i })).toBeInTheDocument();
+    expect(screen.getByRole("dialog", { hidden: true })).toBeInTheDocument();
+    expect(screen.getByRole("heading", { hidden: true })).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { hidden: true, name: /close/i })
+    ).toBeInTheDocument();
   });
 
   describe("when passed onClose handler", () => {
     test("calls onClose action when pressing the ESC key", () => {
-      fireEvent.keyDown(screen.getByRole("dialog"), {
+      fireEvent.keyDown(screen.getByRole("dialog", { hidden: true }), {
         key: "Escape",
         code: "Escape",
       });
@@ -34,7 +38,10 @@ describe("Modal", () => {
     });
 
     test("renders dismissible button that calls onClose action when clicked", async () => {
-      const closeButton = screen.getByRole("button", { name: /close/i });
+      const closeButton = screen.getByRole("button", {
+        hidden: true,
+        name: /close/i,
+      });
       await userEvent.click(closeButton);
       expect(mockClose).toHaveBeenCalledTimes(1);
     });
