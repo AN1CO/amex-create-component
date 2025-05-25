@@ -53,7 +53,7 @@ export default function Modal({ isOpen, onClose, children }: ModalProps) {
       onKeyDown={handleKeyDown}
       className="max-w-fit p-6 rounded-2xl relative m-auto backdrop:backdrop-grayscale-50"
     >
-      <div className="bg-white p-8 rounded w-96 relative flex-col">
+      <div className="p-8 rounded w-96 relative flex-col">
         <CloseButton onClick={handleCloseModal} />
         <div>{children}</div>
       </div>

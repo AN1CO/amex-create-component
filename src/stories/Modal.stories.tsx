@@ -12,7 +12,7 @@ const meta = {
     layout: "centered",
   },
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ["autodocs"],
+  // tags: ["autodocs"],
 } satisfies Meta<typeof Modal>;
 
 export default meta;
@@ -27,12 +27,15 @@ const DialogModal = () => {
   const [openModal, setOpenModal] = useState(false);
 
   return (
-    <>
-      <button onClick={() => setOpenModal(true)}>Open Modal</button>
-      <Modal isOpen={openModal} onClose={() => setOpenModal(false)}>
-        Modal Things
+    <div className="flex justify-center items-center flex-col h-screen">
+      <Modal isOpen={true} onClose={() => setOpenModal(false)}>
+        <h2>Confirmation</h2>
+        <p></p>
+        <div>
+          <button onClick={() => console.log("Confirmed!")}>Confirm</button>
+        </div>
       </Modal>
-    </>
+    </div>
   );
 };
 
