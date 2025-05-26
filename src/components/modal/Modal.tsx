@@ -20,7 +20,7 @@ const CloseButton = ({ onClick }: CloseButtonProps) => (
     onClick={() => onClick()}
     className="absolute top-1 right-1"
   >
-    <img className="w-8 h-8" src={CloseIcon} />
+    <img alt="" className="w-8 h-8" src={CloseIcon} />
   </button>
 );
 
