@@ -43,6 +43,12 @@ TODO: Replace with a base component system to customize on top of that is access
 ## Task Two - Component Build
 
 ### Screenshots
+#### App
+<img width="891" alt="Screenshot 2025-05-26 at 3 41 06 PM" src="https://github.com/user-attachments/assets/6e1026e5-5d2f-492e-b9d3-8c199be760b1" />
+<img width="837" alt="Screenshot 2025-05-26 at 3 41 12 PM" src="https://github.com/user-attachments/assets/2c916d62-310e-40a6-a2cb-7ac003137194" />
+<img width="544" alt="Screenshot 2025-05-26 at 3 45 17 PM" src="https://github.com/user-attachments/assets/fa58203b-bfbb-4da5-86a0-711969f7d8a5" />
+
+#### Storybook
 
 Using the following unit test as a foundation, recreate a reusable component that would result in all of these tests passing.
 
