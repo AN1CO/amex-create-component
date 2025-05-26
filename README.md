@@ -20,23 +20,22 @@ Storybook:
 
 `yarn storybook`
 
-### Main Tech Choices
+### Main Tech Choices Explainer
 
 #### Typescript + React + Vite
 Typescript is in the norm in large component libraries and typing is important to make sure components are being used properly and theres zero confusion on what is required to use component. With React + Vite scaffolding is easy, up-to-date and includes basic linting ESLint that can be easily configured for more detailed linting in the future.
 
+TODO: add more explicit ESLint rules for auto-formatting so not everyone's different environments alters too many files. Things like import order for react files, spacing, etc.
+
 #### React Testing Library + Vitest
 
 #### Storybook
+The standard for component libraries. Works out of the box and has a lot of customization.
+
+TODO: use storybook add-on to check for accessibility for devs that are working on future components to check against.
 
 #### TailwindCSS
 Not paticularly my favorite (personally prefer styled components) but Tailwind is great if you have no system design and need to spin it up quickly.
-
-Consider how you might handle linting, formatting, and any other Developer Experience improvements or quality of life support. Include these in the README.md as future improvements.
-
-You are free to configure the project however you like. What is important is that you document the choices you make and why you made them.
-
-If you run out of time to perform the actual configuration, please document what you would have done.
 
 ## Task Two - Component Build
 
