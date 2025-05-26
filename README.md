@@ -2,23 +2,32 @@
 
 We've accidentally deleted our reusable component library repository(!) but thankfully we were able to recover some unit tests from an old backup. Can you help us recreate our component?
 
-## Instructions
-
-You should spend no more than 2.5 hours in total on the challenge as a whole.
-
-Each task is of equal importance, so it is better to partially complete both tasks, rather than fully complete one, leaving comments as to your intention.
-
-We are interested in seeing your performance on the task within the given time, and will take the given time into consideration when assessing performance.
-
-The resulting code repository should be provided back to us as a GitHub repository.
-
 ## Task One - Configuration and Documentation
 
-Your initial task is to build a repository that we could use as a foundation for a component library. Use Technology and packages that you are comfortable with. As a quick-start we would recommend:
-- Typescript
-- React
-- React Testing Library
-- Vitest
+### How to Run
+
+run `yarn` to get dependencies
+
+Dev Env:
+`yarn dev`
+
+Test Watch:
+`yarn test`
+
+Storybook:
+`yarn storybook`
+
+### Main Tech Choices
+
+#### Typescript + React + Vite
+Typescript is in the norm in large component libraries and typing is important to make sure components are being used properly and theres zero confusion on what is required to use component. With Reat + Vite scaffolding is easy, up-to-date and includes ESLint.
+
+#### React Testing Library + Vitest
+
+#### Storybook
+
+#### TailwindCSS
+Not paticularly my favorite (personally prefer styled components) but Tailwind is great if you have no system design and need to spin it up quickly. If you expect
 
 Consider how you might handle linting, formatting, and any other Developer Experience improvements or quality of life support. Include these in the README.md as future improvements.
 
