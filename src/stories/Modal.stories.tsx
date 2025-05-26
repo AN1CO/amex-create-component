@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { StoryObj } from "@storybook/react";
 import { useState } from "react";
 
 import Modal from "../components/modal/Modal";
@@ -9,7 +9,7 @@ const meta = {
   parameters: {
     layout: "centered",
   },
-} satisfies Meta<typeof Modal>;
+};
 
 export default meta;
 type Story = StoryObj<typeof Modal>;
