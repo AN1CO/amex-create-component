@@ -26,7 +26,7 @@ yarn storybook
 ### Main Tech Choices Explainer
 
 #### Typescript + React + Vite
-Typescript is in the norm in large component libraries and typing is important to make sure components are being used properly and theres zero confusion on what is required to use component. With React + Vite scaffolding is easy, up-to-date and includes basic linting ESLint that can be easily configured for more detailed linting in the future.
+Typescript is the norm in large component libraries and typing is important to make sure components are being used properly and zero confusion on what is required to use a component. With React + Vite, scaffolding is easy, up-to-date and includes basic linting ESLint that can be easily configured for more detailed linting in the future.
 
 TODO: add more explicit ESLint rules for auto-formatting so not everyone's different environments alters too many files. Things like import order for react files, spacing, etc.
 
