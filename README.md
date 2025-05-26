@@ -9,12 +9,15 @@ We've accidentally deleted our reusable component library repository(!) but than
 run `yarn` to get dependencies
 
 Dev Env:
+
 `yarn dev`
 
 Test Watch:
+
 `yarn test`
 
 Storybook:
+
 `yarn storybook`
 
 ### Main Tech Choices
