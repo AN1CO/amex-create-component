@@ -36,7 +36,7 @@ The standard for component libraries. Works out of the box and has a lot of cust
 TODO: use storybook add-on to check for accessibility.
 
 #### TailwindCSS
-Not paticularly my favorite (personally prefer styled components) but Tailwind is great if you have no system design or core style and need to spin it up quickly. More updated than Bootstrap.
+Not paticularly my favorite (personally prefer styled components) but Tailwind is great if you have no system design or core style and need to spin it up quickly.
 
 TODO: Replace with a base component system to customize on top of that is accessible and ability to use more strict styled components to enforce strict adherence to a system design.
 
@@ -55,9 +55,17 @@ TODO: Replace with a base component system to customize on top of that is access
 
 #### Accessibility
 
+- Using semantic `<dialog>` tags instead of `divs` so it plays better with screen readers. ESC key press to close modal is already baked in. If I want to make it even MORE Accessible, I would avoid using a modal whenever I can.
+
+- Modals should be used sparingly. I added an option to hide the close button for the benefit of product, but it is built in be default so when a screen reader or keyboard user opens it, is tabbed to the first element, which is the close button, incase it's in the way of something and needs to be closed quickly.
+
 #### TODO
 
-- Add an optional `footer` prop to easily pass react components to allow devs to pass buttons to if necessary. It should allow easy base styles so they look nice automatically.
+- Add an optional `footer` prop to easily pass react components to allow devs to pass buttons to if necessary. It should allow easy base styles so they look nice automatically without too much work from the dev.
+
+- Make modal more responsive: spend more time messing with styling to make the modal more responsive
+
+- Spend more time researching a base component library that meets the needs to replace it with, because I don't believe in reinventing the wheel.
 
 Using the following unit test as a foundation, recreate a reusable component that would result in all of these tests passing.
 
