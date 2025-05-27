@@ -48,8 +48,10 @@ TODO: Replace with a base component system to customize on top of that is access
 <img width="837" alt="Screenshot 2025-05-26 at 3 41 12 PM" src="https://github.com/user-attachments/assets/2c916d62-310e-40a6-a2cb-7ac003137194" />
 <img width="544" alt="Screenshot 2025-05-26 at 3 45 17 PM" src="https://github.com/user-attachments/assets/fa58203b-bfbb-4da5-86a0-711969f7d8a5" />
 
-
 #### Storybook
+<img width="1154" alt="Screenshot 2025-05-26 at 7 00 36 PM" src="https://github.com/user-attachments/assets/bfae32a8-adba-42e6-b88f-ac6d28f6c4b1" />
+<img width="1156" alt="Screenshot 2025-05-26 at 7 00 43 PM" src="https://github.com/user-attachments/assets/70f25fd6-3f64-4cdc-8bdf-a902b2803047" />
+<img width="1151" alt="Screenshot 2025-05-26 at 7 00 54 PM" src="https://github.com/user-attachments/assets/ef8b6b4e-907a-460c-b0db-6f1ef7d0375e" />
 
 ### Modal Explanation
 
