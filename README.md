@@ -68,13 +68,3 @@ TODO: Replace with a base component system to customize on top of that is access
 - Make modal more responsive: spend more time messing with styling to make the modal more responsive
 
 - Spend more time researching a base component library that meets the needs to replace it with, because I don't believe in reinventing the wheel.
-
-Using the following unit test as a foundation, recreate a reusable component that would result in all of these tests passing.
-
-Whilst the unit test was originally written with a specific testing library, if you need to refactor the functions to reflect a different package that is fine.
-
-Consider the flexibility of this component, how you might break this down for different use cases, what configuration the end-consumer might need / want.
-
-NOTE: However you configure the project from Task One, the expectation would be that this component can be seen rendered.
-
-
