@@ -55,8 +55,6 @@ TODO: Replace with a base component system to customize on top of that is access
 
 ### Modal Explanation
 
-#### Accessibility
-
 - Using semantic `<dialog>` tags instead of `divs` so it plays better with screen readers. ESC key press to close modal is already baked in. If I want to make it even MORE Accessible, I would avoid using a modal whenever I can.
 
 - Modals should be used sparingly. I added an option to hide the close button for the benefit of product, but it is built in be default so when a screen reader or keyboard user opens it, is tabbed to the first element, which is the close button, incase it's in the way of something and needs to be closed quickly.
